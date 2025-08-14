@@ -1,1 +1,54 @@
-/* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+
+// Include the core styles for Angular Material.
+@include mat.core();
+
+// Define your custom theme object.
+$Dj-Seborn-portfolio-theme: mat.define-theme((
+  color: (
+    theme-type: light,
+    primary: mat.$azure-palette,
+    tertiary: mat.$blue-palette,
+  ),
+  density: (
+    scale: 0,
+  )
+));
+
+// Include theme styles for all Angular Material components.
+:root {
+  @include mat.all-component-themes($Dj-Seborn-portfolio-theme);
+}
+
+// Optional: Uncomment if you want to use typography styles.
+ @include mat.typography-hierarchy($Dj-Seborn-portfolio-theme);
+
+// Optional: Uncomment to support deprecated color inputs.
+@include mat.color-variants-backwards-compatibility($Dj-Seborn-portfolio-theme);
+
+// Your global styles below:
+
+::ng-deep .mat-mdc-dialog-container.custom-dialog {
+  padding: 0 !important;
+  border-radius: 18px !important;
+  overflow: hidden !important;
+  max-width: none !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.16);
+}
+
+
+html, body {
+  height: 100%;
+  width: 100%;
+  background-color: black;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+
+

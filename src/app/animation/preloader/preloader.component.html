@@ -1,0 +1,52 @@
+<!-- src/app/animation/preloader/preloader.component.html -->
+<button class="restart-btn" (click)="restart()">
+  <div class="dot-container">
+    <div class="dot" *ngFor="let _ of dots"></div>
+  </div>
+</button>
+
+<header class="header">
+  <div class="header-inner">
+    <div class="header-left">SPICE MERIDIAN</div>
+
+    <div class="header-middle">
+      <a href="#" class="nav-link">VOYAGES</a>
+      <a href="#" class="nav-link">ARCHIVES</a>
+    </div>
+
+    <div class="header-right">
+      <div class="social-links">
+        <a href="#">IG</a>
+        <a href="#">IN</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="text-element" id="text-ve">VE</div>
+
+<div class="preloader-container">
+  <ng-container *ngFor="let img of images; let i = index">
+    <div class="image-wrapper" [id]="i === images.length - 1 ? 'final-image' : null">
+      <img [src]="img" alt="Image {{ i + 1 }}" />
+    </div>
+  </ng-container>
+</div>
+
+<div class="text-element" id="text-la">LA</div>
+
+<div class="big-title">
+  <div class="title-line"><span>CELESTIAL</span></div>
+  <div class="title-line"><span>SANDS OF</span></div>
+  <div class="title-line"><span>ETERNITY</span></div>
+</div>
+
+<div class="grid-overlay">
+  <div class="grid-overlay-inner">
+    <div class="grid-column" *ngFor="let _ of gridCols"></div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="coordinates">51.5074° N, 0.1278° W</div>
+</footer>

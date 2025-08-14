@@ -1,0 +1,41 @@
+<section class="contact" id="contact">
+  <h2>Contact & Bookings</h2>
+  <p>If you would like to book DJ SEABORN or have any inquiries, please reach out via phone or email:</p>
+
+  <ul class="contact-info">
+    <li><strong>Phone:</strong> <a href="tel:+917906371348">+91 79063 71348</a></li>
+    <li><strong>Email:</strong> <a href="mailto:djseabornmusic@gmail.com">djseabornmusic&#64;gmail.com</a></li>
+  </ul>
+
+  <h3>Technical Rider</h3>
+  <ul class="tech-rider">
+    <li>2 x Pioneer CDJ2000/3000 Nexus/Nexus2 (linked to each other)</li>
+    <li>1 x Pioneer DJM 900 Nexus/Nexus2 mixer (linked to CDJs)</li>
+    <li>1 x Good quality corded or cordless microphone</li>
+    <li>2 x High powered & loud monitor speakers</li>
+  </ul>
+
+  <h3>Send a Message</h3>
+  <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" novalidate>
+    <label>
+      Name:
+      <input type="text" formControlName="name" placeholder="Your name" required />
+    </label>
+
+    <label>
+      Email:
+      <input type="email" formControlName="email" placeholder="Your email" required />
+    </label>
+
+    <label>
+      Message:
+      <textarea formControlName="message" rows="5" placeholder="Your message" required></textarea>
+    </label>
+
+    <button type="submit" [disabled]="contactForm.invalid">Send</button>
+  </form>
+
+  <p *ngIf="submitted" class="success-message">
+    Thanks for contacting me! I will get back to you soon.
+  </p>
+</section>

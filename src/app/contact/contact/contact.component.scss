@@ -1,0 +1,92 @@
+.contact {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  color: #eee;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+  h2, h3 {
+    color: #cc3424;
+    margin-bottom: 1rem;
+  }
+
+  .contact-info, .tech-rider {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 1.5rem;
+
+    li {
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+
+      a {
+        color: #cc3424;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+
+    label {
+      display: flex;
+      flex-direction: column;
+      font-weight: 600;
+      font-size: 1rem;
+      color: #ccc;
+
+      input, textarea {
+        margin-top: 0.3rem;
+        padding: 0.6rem;
+        font-size: 1rem;
+        border-radius: 5px;
+        border: 1px solid #555;
+        background: #222;
+        color: white;
+        resize: vertical;
+        transition: border-color 0.3s ease;
+
+        &:focus {
+          outline: none;
+          border-color: #cc3424;
+        }
+      }
+    }
+
+    button {
+      background-color: #cc3424;
+      border: none;
+      padding: 0.8rem;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+
+      &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+
+      &:hover:enabled {
+        background-color: #cc3424;
+      }
+    }
+  }
+
+  .success-message {
+    margin-top: 1rem;
+    color: #4caf50;
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-align: center;
+  }
+}

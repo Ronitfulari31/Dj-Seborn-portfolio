@@ -1,0 +1,11 @@
+<section *ngIf="press" class="press-detail" id="press">
+  <h2>{{ press.title }}</h2>
+  <img [src]="press.image" alt="{{ press.title }}" />
+  <p>{{ press.content }}</p>
+  <a [href]="press.url" target="_blank">Read Full Article &rarr;</a>
+</section>
+
+<!-- Optional: Show a fallback if no article found -->
+<section *ngIf="!press" class="press-detail-not-found">
+  <p></p>
+</section>

@@ -1,0 +1,133 @@
+.about-section {
+  padding: 6rem 2rem;
+  background: linear-gradient(135deg, #000000, #000000);
+  color: white;
+  
+}
+
+.about-container {
+ // max-width: 1200px;
+  margin: auto;
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  /* Make sure it never stacks automatically */
+  flex-wrap: nowrap;
+}
+
+.about-text {
+  flex: 1;
+  text-align: left; /* Always keep text left-aligned */
+}
+
+.about-title {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.highlight {
+  color: #ff0303;
+}
+
+.emphasize {
+  color: #b0efee;
+}
+
+.genre {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 0.2rem 0.5rem;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  margin: 0 2px;
+}
+
+.about-description p {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.quote {
+  margin-top: 2rem;
+  font-size: 1.2rem;
+  font-style: italic;
+  color: #bbb;
+  border-left: 3px solid #ff0000;
+  padding-left: 1rem;
+}
+
+.about-image {
+  flex: 1;
+  text-align: right; /* Always keep image on the right side */
+}
+
+.styled-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+  transition: transform 0.4s ease;
+}
+
+.styled-image:hover {
+  transform: scale(1.05);
+}
+
+.letter {
+  display: inline-block;
+  transform-origin: bottom;
+}
+
+/* Remove the stacking behavior on mobile */
+@media (max-width: 800px) {
+  .about-container {
+    flex-direction: row; /* Keep row layout even on small screens */
+  }
+  .about-text {
+    flex: 1;
+  }
+  .about-image {
+    flex: 1;
+  }
+  .about-description p {
+    font-size: 1rem; /* Slightly smaller text for small screens */
+  }
+}
+
+.image-switcher {
+  position: relative;
+  width: 100%;
+  max-width: 400px; /* adjust as needed */
+  aspect-ratio: 1 / 1; /* keep square, adjust if needed */
+  cursor: grab;
+  user-select: none;
+  box-shadow: 0 1rem 2rem -1rem rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+}
+
+.image-switcher:active {
+  cursor: grabbing;
+}
+
+.image-switcher img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+  object-fit: contain;
+  pointer-events: none; /* so pointer events pass through images */
+  user-select: none;
+}
+
+.dark-logo {
+  z-index: 1;
+}
+
+.light-logo {
+  z-index: 2;
+  clip-path: inset(0 50% 0 0); /* start half revealed */
+  transition: clip-path 0.2s ease;
+}

@@ -1,0 +1,57 @@
+
+<mat-toolbar color="primary" class="header-toolbar" role="banner" aria-label="Main Navigation">
+  
+  <!-- Navigation buttons on left/center, visible only on desktop -->
+  <nav class="nav-buttons" *ngIf="!isMobile" role="navigation" aria-label="Primary Navigation">
+    <a mat-button (click)="scrollToSection('home')" tabindex="0">Home</a>
+    <a mat-button (click)="scrollToSection('about')" tabindex="0">About</a>
+    <a mat-button (click)="scrollToSection('gallery')" tabindex="0">Gallery</a>
+    <a mat-button (click)="scrollToSection('tour')" tabindex="0">Tour</a>
+    <a mat-button (click)="scrollToSection('testimonials')" tabindex="0">Testimonials</a>
+    <a mat-button (click)="scrollToSection('press')" tabindex="0">Press</a>
+    <a mat-button (click)="scrollToSection('contact')" tabindex="0">Contact</a>
+  </nav>
+
+  <!-- Logo as sidebar toggle button on right -->
+  <button
+    class="logo-toggle-btn"
+    aria-label="Toggle menu"
+    aria-haspopup="true"
+    aria-expanded="menuOpen"
+    aria-controls="sidebar-menu"
+    (click)="toggleMenu()"
+    type="button"
+  >
+    <img src="assets/images/LOGO.png" alt="DJ SEABORN Logo" class="logo" />
+  </button>
+
+</mat-toolbar>
+
+<!-- Sidebar menu sliding from the right -->
+<div
+  class="sidebar-menu"
+  id="sidebar-menu"
+  role="menu"
+  [attr.aria-hidden]="!menuOpen ? 'true' : 'false'"
+  [class.open]="menuOpen"
+>
+  <nav (keydown.escape)="closeMenu()">
+    <a mat-button (click)="scrollToSection('home'); closeMenu()" role="menuitem" tabindex="0">Home</a>
+    <a mat-button (click)="scrollToSection('about'); closeMenu()" role="menuitem" tabindex="0">About</a>
+    <a mat-button (click)="scrollToSection('gallery'); closeMenu()" role="menuitem" tabindex="0">Gallery</a>
+    <a mat-button (click)="scrollToSection('tour'); closeMenu()" role="menuitem" tabindex="0">Tour</a>
+    <a mat-button (click)="scrollToSection('testimonials'); closeMenu()" role="menuitem" tabindex="0">Testimonials</a>
+    <a mat-button (click)="scrollToSection('press'); closeMenu()" role="menuitem" tabindex="0">Press</a>
+    <a mat-button (click)="scrollToSection('contact'); closeMenu()" role="menuitem" tabindex="0">Contact</a>
+  </nav>
+</div>
+
+<!-- Overlay backdrop that closes menu on click -->
+<div
+  class="overlay"
+  (click)="closeMenu()"
+  *ngIf="menuOpen"
+  [attr.aria-hidden]="!menuOpen ? 'true' : 'false'"
+  [class.open]="menuOpen"
+  tabindex="-1"
+></div>

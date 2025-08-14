@@ -1,0 +1,130 @@
+ /* Toolbar basics */
+  .header-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1100;
+    background-color: #121212;
+    color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+    min-height: 64px;
+  }
+
+  /* Navigation buttons */
+  .nav-buttons {
+    cursor: pointer;
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-start;
+    gap: 1.25rem;
+  }
+  .nav-buttons a[mat-button] {
+    font-weight: 600;
+    font-size: 1rem;
+    color: white;
+    transition: color 0.3s ease;
+    text-decoration: none;
+  }
+  .nav-buttons a[mat-button]:hover,
+  .nav-buttons a[mat-button]:focus {
+    color: #cc3424;
+    outline: none;
+  }
+
+  /* Logo toggle as button on right */
+  .logo-toggle-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    margin-left: auto;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+  .logo-toggle-btn img.logo {
+    height: 52px;
+    width: auto;
+    user-select: none;
+    object-fit: contain;
+    transition: filter 0.3s, transform 0.3s;
+  }
+  .logo-toggle-btn[aria-expanded="true"] img.logo {
+    filter: drop-shadow(0 4px 12px #cc3424cc);
+    transform: scale(1.05) rotate(-8deg);
+  }
+
+  /* Sidebar menu */
+  .sidebar-menu {
+  position: fixed;
+  top: 64px; /* height of toolbar */
+  right: 0;
+  bottom: 0;
+  width: 250px;
+  background-color: #1f1f1f;
+  box-shadow: -2px 0 8px rgba(0, 0, 0, 0.8);
+  padding-top: 1rem;
+  overflow-y: auto;
+  z-index: 1150;
+
+  /* Hide offscreen to the right */
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  /* keep rendered, don't use display:none */
+}
+
+.sidebar-menu.open {
+  transform: translateX(0);
+}
+  .sidebar-menu nav {
+    display: flex;
+    flex-direction: column;
+  }
+  .sidebar-menu nav a[mat-button] {
+    padding: 1rem 1.5rem;
+    font-size: 1.1rem;
+    text-align: left;
+    color: white;
+    border-bottom: 1px solid #333;
+    text-decoration: none;
+  }
+  .sidebar-menu nav a[mat-button]:hover,
+  .sidebar-menu nav a[mat-button]:focus {
+    background-color: #333;
+    outline: none;
+  }
+
+  /* Overlay */
+  .overlay {
+  position: fixed;
+  top: 64px; /* below toolbar */
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0);
+  opacity: 0;
+  z-index: 1140;
+
+  pointer-events: none;
+  transition: background 0.3s ease, opacity 0.3s ease;
+}
+
+/* Overlay visible */
+.overlay.open {
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 1;
+  pointer-events: auto;
+}
+  /* Responsive */
+  @media (max-width: 768px) {
+    .nav-buttons {
+      display: none;
+    }
+    .logo-toggle-btn img.logo {
+      height: 40px;
+      max-width: 120px;
+    }
+  }

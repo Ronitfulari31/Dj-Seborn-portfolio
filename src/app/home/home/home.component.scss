@@ -1,0 +1,282 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:900&display=swap');
+
+/* ========== HERO SECTION ========== */
+.hero-background {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 100vh;
+  padding: 2rem 1rem;
+  color: var(--mat-primary-contrast);
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Left Side Image */
+.hero-image {
+  flex: 1;
+  background-image: url('../../../assets/images/HomeBG.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100%;
+  min-width: 40vw;
+  max-width: 50vw;
+}
+
+/* Right Content Area */
+.hero-content {
+  flex: 1;
+  max-width: 50vw;
+  padding: 2rem;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Morphing Text: container */
+#container {
+  position: relative;
+  width: 100%;
+  height: 80pt;
+  filter: url(#threshold) blur(0.6px);
+  margin-bottom: 4rem; /* Large gap below morph text */
+}
+
+/* Morphing Text: spans */
+#text1,
+#text2 {
+  position: absolute;
+  width: 100%;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 900;
+  font-size: 60pt;
+  text-align: center;
+  user-select: none;
+  color: #ff0000c5;
+}
+
+/* ========== ANIMATED BOOK NOW BUTTON ========== */
+/* Button wrap container for centering and gap */
+.book-now {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem; /* spacing handled by #container */
+}
+
+/* Animated Button Custom CSS */
+.button-wrap {
+  position: relative;
+  z-index: 2;
+  border-radius: 999vw;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0; /* spacing handled by #container */
+  margin-bottom: 0;
+  pointer-events: none;
+}
+@media (max-width: 600px) {
+  .button-wrap { margin-top: 0.8rem; }
+}
+@media (max-width: 400px) {
+  .button-wrap { margin-top: 0.5rem; }
+}
+
+/* Animated Book Now Button */
+.animated-book-now {
+  all: unset;
+  cursor: pointer;
+  position: relative;
+  z-index: 3;
+  pointer-events: auto;
+  border-radius: 999vw;
+  background: linear-gradient(
+    -75deg,
+    rgba(255,255,255,0.08),
+    rgba(255,255,255,0.18),
+    rgba(255,255,255,0.08)
+  );
+  box-shadow:
+    inset 0 0.125em 0.125em rgba(0,0,0,0.05),
+    inset 0 -0.125em 0.125em rgba(255,255,255,0.5),
+    0 0.25em 0.125em -0.125em rgba(0,0,0,0.18),
+    0 0 0.1em 0.25em inset rgba(255,255,255,0.2),
+    0 0 0 0 rgba(255,255,255,1);
+  backdrop-filter: blur(0.13em);
+  transition: all 400ms cubic-bezier(0.25,1,0.5,1);
+  font-family: "Inter", "Raleway", sans-serif;
+  font-weight: 600;
+}
+.animated-book-now:hover {
+  transform: scale(0.975);
+  backdrop-filter: blur(0.01em);
+  box-shadow:
+    inset 0 0.125em 0.125em rgba(0,0,0,0.05),
+    inset 0 -0.125em 0.125em rgba(255,255,255,0.5),
+    0 0.15em 0.05em -0.1em rgba(0,0,0,0.25),
+    0 0 0.05em 0.1em inset rgba(255,255,255,0.5),
+    0 0 0 0 rgba(255,255,255,1);
+}
+.animated-book-now span {
+  position: relative;
+  display: block;
+  user-select: none;
+  font-family: "Inter", "Raleway", sans-serif;
+  font-weight: 700;
+  font-size: 1.14rem;
+  color: var(--mat-primary-contrast, #222);
+  letter-spacing: -0.04em;
+  padding-inline: 2.5em;
+  padding-block: 1em;
+  text-shadow: 0em 0.15em 0.03em rgba(0,0,0,0.08);
+  transition: inherit;
+}
+.animated-book-now:hover span {
+  text-shadow: 0.025em 0.025em 0.025em rgba(0,0,0,0.10);
+}
+.animated-book-now span::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  top: 0; left: 0;
+  border-radius: 999vw;
+  background: linear-gradient(
+    -45deg,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0.25) 45% 55%,
+    rgba(255,255,255,0) 60%
+  );
+  mix-blend-mode: screen;
+  pointer-events: none;
+  transition: background-position 500ms cubic-bezier(0.25,1,0.5,1);
+}
+.animated-book-now:hover span::after {
+  background-position: 25% 50%;
+}
+.animated-book-now:active span::after {
+  background-position: 50% 15%;
+}
+.animated-book-now::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  border-radius: 999vw;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  background: conic-gradient(
+      from -75deg at 50% 50%,
+      rgba(0,0,0,0.45),
+      rgba(0,0,0,0) 5% 40%,
+      rgba(0,0,0,0.45) 50%,
+      rgba(0,0,0,0) 60% 95%,
+      rgba(0,0,0,0.45)
+    ),
+    linear-gradient(180deg, rgba(255,255,255,0.5), rgba(255,255,255,0.5));
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.14);
+  transition: inherit;
+}
+.animated-book-now:hover::after {
+  background: conic-gradient(
+    from -125deg at 50% 50%,
+    rgba(0,0,0,0.5),
+    rgba(0,0,0,0) 7% 35%,
+    rgba(0,0,0,0.5) 53%,
+    rgba(0,0,0,0) 65% 93%,
+    rgba(0,0,0,0.5)
+  ),
+  linear-gradient(180deg, rgba(255,255,255,0.5), rgba(255,255,255,0.5));
+}
+
+/* Button Shadow Underlay */
+.button-shadow {
+  position: absolute;
+  width: 120%;
+  height: 120%;
+  left: -10%;
+  top: -10%;
+  pointer-events: none;
+}
+.button-shadow::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 999vw;
+  background: linear-gradient(180deg, rgba(0,0,0,0.18), rgba(0,0,0,0.07));
+  width: 94%;
+  height: 92%;
+  left: 3%;
+  top: 8%;
+  opacity: 1;
+  filter: blur(0.15em);
+}
+
+/* ========== RESPONSIVE BREAKPOINTS ========== */
+
+/* Large screens below 1200px */
+@media (max-width: 1200px) {
+  .hero-image { max-width: 45vw; }
+  .hero-content { max-width: 55vw; padding: 1.5rem; }
+  #text1, #text2 { font-size: 48pt; }
+  #container { margin-bottom: 3rem; }
+}
+
+/* Tablets & Small laptops (≤992px) */
+@media (max-width: 992px) {
+  .hero-background {
+    flex-direction: column;
+    height: auto;
+    text-align: center;
+    padding: 1rem 0.5rem;
+  }
+  .hero-image {
+    width: 100%;
+    height: 38vh;
+    min-width: 100%;
+    max-width: 100%;
+  }
+  .hero-content {
+    max-width: 100%;
+    padding: 1.1rem;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+  #container { height: 60pt; margin-bottom: 2.5rem; }
+  #text1, #text2 { font-size: 38pt; }
+}
+
+/* Small tablets and phones (≤768px) */
+@media (max-width: 768px) {
+  #text1, #text2 { font-size: 32pt; }
+  #container    { margin-bottom: 2rem; }
+  .animated-book-now span {
+    font-size: 1rem;
+    padding-inline: 1.5em; padding-block: 0.8em;
+  }
+}
+
+/* Small screens below 600px */
+@media (max-width: 600px) {
+  #text1, #text2 { font-size: 24pt; }
+  .animated-book-now span {
+    font-size: 0.98rem;
+    padding-inline: 1.2em; padding-block: 0.6em;
+  }
+}
+
+/* Extra small screens below 400px */
+@media (max-width: 400px) {
+  #container { margin-bottom: 1.1rem; }
+  #text1, #text2 { font-size: 16pt; }
+  .animated-book-now span {
+    font-size: 0.92rem;
+    padding-inline: 0.8em; padding-block: 0.5em;
+  }
+}

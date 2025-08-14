@@ -1,0 +1,67 @@
+<section class="testimonials-section">
+  <!-- Header -->
+  <div class="testimonials-header">
+    <span class="section-label">Testimonials</span>
+    <h2 class="section-title">What Our Clients Say</h2>
+    <p class="section-subtitle">
+      We’re proud to have worked with amazing people. Here’s what they think about our services.
+    </p>
+    <div class="divider"></div>
+  </div>
+
+  <!-- Carousel -->
+  <div class="testimonial-carousel">
+    <div class="carousel">
+      <!-- Prev Button -->
+      <button
+        class="carousel-button prev"
+        (click)="prevCard()"
+        [disabled]="currentIndex === 0"
+      >‹</button>
+
+      <!-- Track -->
+      <div class="carousel-track" #carouselTrack>
+        <article
+          class="deconstructed-card"
+          *ngFor="let t of testimonials; let i = index"
+          #cardElem
+          (mousemove)="handleCardMouseMove($event, i)"
+          (mouseleave)="handleCardMouseLeave(i)"
+        >
+          <!-- Avatar -->
+          <div class="avatar-block">
+            <img [src]="t.image" [alt]="t.name + ' photo'" />
+          </div>
+
+          <!-- Content -->
+          <div class="card-content-block">
+            <div class="quote-icon">“</div>
+            <p class="testimonial-text">{{ t.text }}</p>
+            <div class="rating">
+              <span *ngFor="let star of [1,2,3,4,5]" class="star">★</span>
+            </div>
+            <h4 class="name">{{ t.name }}</h4>
+            <span class="designation">{{ t.designation }}</span>
+          </div>
+        </article>
+      </div>
+
+      <!-- Next Button -->
+      <button
+        class="carousel-button next"
+        (click)="nextCard()"
+        [disabled]="currentIndex >= testimonials.length - cardsPerSlide"
+      >›</button>
+    </div>
+
+    <!-- Dots -->
+    <div class="dots-container">
+      <span
+        *ngFor="let _ of testimonialSlides; let idx = index"
+        class="dot"
+        [class.active]="currentIndex === idx * cardsPerSlide"
+        (click)="navigateTo(idx * cardsPerSlide)"
+      ></span>
+    </div>
+  </div>
+</section>
