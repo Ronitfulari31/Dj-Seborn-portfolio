@@ -1,46 +1,27 @@
-<div class="hero-background" appScrollTrigger id="home">
-  <!-- Left side image -->
+<section class="hero-background">
+  <!-- Left Side Image (Background Image) -->
   <div class="hero-image"></div>
 
-  <!-- Right side content -->
+  <!-- Right Content Area (Morphing Text + Button) -->
   <div class="hero-content">
-    <!-- Morphing Text Animation -->
+    <!-- Morphing Text as Hero Heading -->
     <div id="container">
-      <span id="text1"></span>
+      <span id="text1">'DJ' 
+        <br>'The Producer'<br> 'Remixer',<br>
+    'Bollywood-Tech Pioneer',<br>
+    'Based in Pune, India',<br>
+      </span>
       <span id="text2"></span>
     </div>
 
-    <!-- SVG filter for morph effect -->
-    <svg id="filters" style="display: none">
-      <defs>
-        <filter id="threshold">
-          <feColorMatrix
-            in="SourceGraphic"
-            type="matrix"
-            values="1 0 0 0 0
-                    0 1 0 0 0
-                    0 0 1 0 0
-                    0 0 0 255 -140"
-          />
-        </filter>
-      </defs>
-    </svg>
-
-    <!-- Book Now Button in center and with gap -->
-    <!-- Book Now Button with Custom Animation -->
+    <!-- Book Now Button -->
     <div class="book-now">
       <div class="button-wrap">
-        <button
-          mat-raised-button
-          color="primary"
-          (click)="scrollToContact()"
-          class="animated-book-now"
-          
-        >
-          <span>Book Now</span>
-        </button>
         <div class="button-shadow"></div>
+        <button class="animated-book-now" (click)="scrollToContact()">
+          <span>BOOK NOW</span>
+        </button>
       </div>
     </div>
   </div>
-</div>
+</section>

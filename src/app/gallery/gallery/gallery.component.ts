@@ -126,18 +126,24 @@ export class GalleryComponent implements AfterViewInit, OnDestroy {
     @Inject(PLATFORM_ID) private platformId: Object
   ) {}
 
-  ngAfterViewInit() {
-    this.container = this.containerRef.nativeElement;
-    this.canvas = this.canvasRef.nativeElement;
-    this.overlay = this.overlayRef.nativeElement;
-    this.projectTitle = this.projectTitleRef.nativeElement;
+ ngAfterViewInit() {
+  console.log('ngAfterViewInit called');
+  
+  this.container = this.containerRef.nativeElement;
+  this.canvas = this.canvasRef.nativeElement;
+  this.overlay = this.overlayRef.nativeElement;
+  this.projectTitle = this.projectTitleRef.nativeElement;
 
-    if (isPlatformBrowser(this.platformId)) {
-      this.updateVisibleItems();
-      this.animate();
-      this.initEvents();
-    }
+  if (isPlatformBrowser(this.platformId)) {
+    console.log('Running on browser, initializing gallery');
+    this.updateVisibleItems();
+    this.animate();
+    this.initEvents();
+  } else {
+    console.log('Not running on browser, skipping animations');
   }
+}
+
 
   ngOnDestroy() {
     if (this.animationFrameId) {
@@ -194,6 +200,7 @@ export class GalleryComponent implements AfterViewInit, OnDestroy {
           (this.activeItemId === id && this.isExpanded)
         )
           continue;
+           console.log('Creating visible item:', id);  // Debug item creation
 
         const size = this.getItemSize(row, col);
         const pos = this.getItemPosition(col, row);
